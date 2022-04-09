@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="imgContainer">
+        <img 
+            [alt]="recordItem.Descriptive.Title"
+            [src]="recordItem.Internal.PathToPreview"
+        />
+    </div>
+    <div class="cardContent">
+        <span class="title">{{ recordItem.Descriptive.Title }}</span>
+        <span class="type">
+            {{ recordItem.Administrative.Type!.slice(0, 1).toUpperCase() + recordItem.Administrative.Type!.slice(1) }}
+        </span>
+    </div>
+</div>
