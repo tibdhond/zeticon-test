@@ -10,21 +10,6 @@
     margin-bottom: 5em;
 }
 
-button {
-    background-color: transparent;
-    color: white;
-    font-size: x-large;
-    border-color: transparent;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
-button:disabled {
-    visibility: hidden;
-}
-
 .imgContainer {
     max-width: 80%;
     overflow: hidden;

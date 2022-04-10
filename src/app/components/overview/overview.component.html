@@ -6,3 +6,8 @@
     >
     </app-record-card>
 </div>
+<div class="pagingContainer">
+    <button [disabled]="startIndex === 0" (click)="pageUpdate(-1)">Previous</button>
+    <span class="pagingInfo">{{ startIndex + 1 }}-{{ startIndex+25 < total ? startIndex+25 : total }} of {{ total }}</span>
+    <button [disabled]="startIndex+25 >= total" (click)="pageUpdate(1)">Next</button>
+</div>

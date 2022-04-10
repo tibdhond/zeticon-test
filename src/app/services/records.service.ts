@@ -9,15 +9,24 @@ import { RecordItem } from '../models/record';
 })
 export class RecordsService {
 
-  baseUrl = "https://integration.mediahaven.com/mediahaven-rest-api/v2/";
+  private baseUrl = "https://integration.mediahaven.com/mediahaven-rest-api/v2/";
+  private startIndexWatcher = new BehaviorSubject<number>(0);
 
   constructor(private http: HttpClient) { }
 
-  getRecordsMock(): Observable<ResultType> {
+  startIndexListener():Observable<number> {
+    return this.startIndexWatcher.asObservable();
+  }
+
+  emitStartIndexUpdate(startIndex: number) {
+    this.startIndexWatcher.next(startIndex);
+  }
+
+  getRecordsMock(startIndex: number): Observable<ResultType> {
     return (new BehaviorSubject<ResultType>(RECORDS)).asObservable();
   }
 
-  getRecords(startIndex: number, nrOfResults=25): Observable<{
+  getRecords(startIndex: number): Observable<{
     "NrOfResults": number,
     "StartIndex": number,
     "TotalNrOfResults": number,
@@ -26,7 +35,7 @@ export class RecordsService {
     const options = {
       "params": {
         "startIndex": startIndex,
-        "nrOfResults": nrOfResults,
+        "nrOfResults": 25,
         "sort": "relevance",
         "direction": "Desc",
         "key": ""

@@ -2,4 +2,20 @@
 body {
     background-image: url(assets/endless-constellation.svg);
     margin: 0;
+    color: white;
+}
+
+button {
+    background-color: transparent;
+    color: white;
+    font-size: x-large;
+    border-color: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    visibility: hidden;
 }
