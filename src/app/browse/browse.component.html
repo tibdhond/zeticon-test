@@ -1,4 +1,19 @@
-<div class="buttonContainer">
-    <button>Previous</button>
-    <button>Next</button>
+<div class="browseContainer">
+    <div class="buttonContainer">
+        <button [disabled]="index === 0" (click)="onButtonClick(-1)">Previous</button>
+        <button [disabled]="index === total-1" (click)="onButtonClick(1)">Next</button>
+    </div>
+    <div class="imgContainer">
+        <img 
+            *ngIf="recordItem.Administrative.Type === 'image'; else videoContainer"
+            [src]="recordItem.Internal.PathToPreview"
+            alt="An error occured loading the image"
+        />
+    </div>
 </div>
+
+<ng-template #videoContainer>
+    <video controls>
+        <source [src]="recordItem.Internal.PathToVideo">
+    </video>
+</ng-template>

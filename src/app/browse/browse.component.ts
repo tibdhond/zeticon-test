@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { RecordItem } from '../models/record';
+import { BrowseService } from '../browse.service';
 
 @Component({
   selector: 'app-browse',
@@ -13,10 +14,16 @@ export class BrowseComponent implements OnInit {
   @Input() index!: number;
   @Input() total!: number;
 
-  constructor(private location: Location) { }
+  constructor(
+    private location: Location,
+    private browseService: BrowseService
+  ) { }
 
   ngOnInit(): void {
     this.location.go("/home/preview");
   }
 
+  onButtonClick(change: number) {
+    this.browseService.emitIndexUpdate(this.index+change);
+  }
 }

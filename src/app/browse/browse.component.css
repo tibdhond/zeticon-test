@@ -1,4 +1,38 @@
+.browseContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .buttonContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 1em 4em 5em 4em;
+    margin-bottom: 5em;
+}
+
+button {
+    background-color: transparent;
+    color: white;
+    font-size: x-large;
+    border-color: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    visibility: hidden;
+}
+
+.imgContainer {
+    max-width: 80%;
+    overflow: hidden;
+    align-self: center;
+}
+
+.imgContainer > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

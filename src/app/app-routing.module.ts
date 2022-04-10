@@ -15,7 +15,8 @@ const routes: Routes = [
     children: [
       {
         path: 'preview',
-        redirectTo: 'home'
+        redirectTo: '/home',
+        pathMatch: 'full'
       }
     ]
   },
