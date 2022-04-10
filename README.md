@@ -1,3 +1,33 @@
+# Zeticon Recruitment Test
+
+## Build Instructions
+
+1) Make sure Angular CLI is installed
+
+    ``` npm install @angular/cli ```
+
+    or to install globally:
+
+    ``` sudo npm install -g @angular/cli ```
+
+## Usage instructions
+
+1) Use following CLI command:
+
+    ``` ng serve ``` 
+
+    This will host the app on localhost on port 4200.
+    If port 4200 is not available, you can specify another port like so:
+
+    ```ng serve --port 4201```
+
+2) Open any browser and go to http://localhost:<your_port>
+
+
+
+## Angular generated README below
+
+
 # ZeticonTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
