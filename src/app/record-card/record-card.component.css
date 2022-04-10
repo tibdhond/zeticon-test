@@ -14,6 +14,10 @@
     height: 80%;
 }
 
+.card > .imgContainer:hover {
+    cursor: pointer;
+}
+
 .imgContainer > img {
     width: 100%;
     height: 100%;
@@ -31,4 +35,9 @@
 .cardContent > .type {
     width: 100%;
     text-align: end;
+}
+
+.cardContent > a {
+    color: inherit;
+    text-decoration: none;
 }

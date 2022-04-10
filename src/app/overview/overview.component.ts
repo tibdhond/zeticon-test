@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RecordsService } from '../records.service';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { RecordItem } from '../models/record';
 
 @Component({
   selector: 'app-overview',
@@ -8,12 +8,15 @@ import { RecordsService } from '../records.service';
 })
 export class OverviewComponent implements OnInit {
 
-  records = this.recordsService.getRecords();
+  @Input() records!: RecordItem[];
 
-  constructor(
-    private recordsService: RecordsService) { }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  thumbClicked() {
+
   }
 
 }

@@ -7,6 +7,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { OverviewComponent } from './overview/overview.component';
 import { DetailComponent } from './detail/detail.component';
 import { RecordCardComponent } from './record-card/record-card.component';
+import { HomeComponent } from './home/home.component';
+import { BrowseComponent } from './browse/browse.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { RecordCardComponent } from './record-card/record-card.component';
     ToolbarComponent,
     OverviewComponent,
     DetailComponent,
-    RecordCardComponent
+    RecordCardComponent,
+    HomeComponent,
+    BrowseComponent,
   ],
   imports: [
     BrowserModule,

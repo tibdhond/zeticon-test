@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BrowseService } from '../browse.service';
 import { RecordItem } from '../models/record';
 
 @Component({
@@ -9,11 +10,17 @@ import { RecordItem } from '../models/record';
 export class RecordCardComponent implements OnInit {
 
   @Input() recordItem!: RecordItem;
+  @Input() index!: number;
 
   constructor(
+    private browseService: BrowseService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  onThumbClick() {
+    this.browseService.emitIndexUpdate(this.index);
   }
 
 }

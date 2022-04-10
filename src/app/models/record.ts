@@ -147,7 +147,7 @@ export interface RecordItem {
         "CreationDateLegacy": string | null,
         "Rights": string | null,
         "Categories": {
-          "Category": Array<any>
+          "Category": Array<string>
         },
         "LimitedCategories": Record<any, any>,
         "Publisher": string | null,

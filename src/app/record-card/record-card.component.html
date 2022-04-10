@@ -1,12 +1,14 @@
 <div class="card">
-    <div class="imgContainer">
+    <div class="imgContainer" (click)="onThumbClick()">
         <img 
             [alt]="recordItem.Descriptive.Title"
-            [src]="recordItem.Internal.PathToPreview"
+            [src]="recordItem.Internal.PathToKeyframeThumb"
         />
     </div>
     <div class="cardContent">
-        <span class="title">{{ recordItem.Descriptive.Title }}</span>
+        <a title="Record detail" [routerLink]="['/records', recordItem.Internal.RecordId]">
+            <span class="title">{{ recordItem.Descriptive.Title }}</span>
+        </a>
         <span class="type">
             {{ recordItem.Administrative.Type!.slice(0, 1).toUpperCase() + recordItem.Administrative.Type!.slice(1) }}
         </span>

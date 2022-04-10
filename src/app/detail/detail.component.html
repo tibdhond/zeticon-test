@@ -1,1 +1,114 @@
-<p>detail works!</p>
+<div class="detailContainer" *ngIf="recordItem">
+    <h1 class="title">{{ recordItem.Descriptive.Title }}</h1>
+
+    <div class="imgContainer">
+        <img 
+            *ngIf="recordItem.Administrative.Type === 'image'; else videoPlayer" 
+            [alt]="recordItem.Descriptive.Title"
+            [src]="recordItem.Internal.PathToPreview"
+        />
+    </div>
+    <div class="infoContainer">
+        <div>
+            <h3>Description</h3>
+            <div class="infoLine">
+                <span class="propertyTitle">Title</span><span class="propertyValue">{{ recordItem.Descriptive.Title }}</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Description</span><span class="propertyValue">{{ recordItem.Descriptive.Description ?? "-" }}</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Keywords</span>
+                <div 
+                    *ngIf="recordItem.Descriptive.Keywords.Keyword.length > 0"
+                    class="propertyValue"
+                >
+                    <span *ngFor="let keyword of recordItem.Descriptive.Keywords.Keyword" class="listItem">{{ keyword }}</span>
+                </div>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">AI Keywords</span><span class="propertyValue">-</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Categories</span>
+                <div 
+                    *ngIf="recordItem.Descriptive.Categories.Category.length > 0; else listEmpty"
+                    class="propertyValue"
+                >
+                    <span *ngFor="let category of recordItem.Descriptive.Categories.Category" class="listItem">{{ category }}</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Date & Author</h3>
+            <div class="infoLine">
+                <span class="propertyTitle">Creation date</span><span class="propertyValue">{{ recordItem.Descriptive.CreationDate }}</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Author</span>
+                <div 
+                    *ngIf="(recordItem.Descriptive.Authors | keyvalue).length > 0; else listEmpty"
+                    class="propertyValue"
+                >
+                    <span *ngFor="let author of recordItem.Descriptive.Authors | keyvalue" class="listItem">{{ author.value }}</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>GDPR & Reuse</h3>
+            <div class="infoLine">
+                <span class="propertyTitle">GDPR</span><span class="propertyValue">-</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Reuse</span><span class="propertyValue">-</span>
+            </div>
+        </div>
+        <div>
+            <h3>Rights</h3>
+            <div class="infoLine">
+                <span class="propertyTitle">Rights owner</span><span class="propertyValue">{{ recordItem.Descriptive.RightsOwner ?? "-"}}</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">May Read</span><span class="propertyValue">{{ recordItem.Context.IsPublic ? "Public" : "Private"}}</span>
+            </div>
+        </div>
+        <div>
+            <h3>Location</h3>
+            <div class="infoLine">
+                <span class="propertyTitle">Adress</span><span class="propertyValue">{{ recordItem.Descriptive.OriginalPath ?? "-"}}</span>
+            </div>
+        </div>
+        <div>
+            <h3>Albums</h3>
+            <div class="infoLine">
+                <span class="propertyTitle">Albums</span><span class="propertyValue">-</span>
+            </div>
+        </div>
+        <div>
+            <h3>Technical Information</h3>
+            <div class="infoLine">
+                <span class="propertyTitle">Original filename</span><span class="propertyValue">{{ recordItem.Descriptive.OriginalFilename }}</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Image size in pixels</span><span class="propertyValue">{{ recordItem.Technical.ImageSize }}</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Image quality</span><span class="propertyValue">{{ recordItem.Technical.ImageQuality | titlecase }}</span>
+            </div>
+            <div class="infoLine">
+                <span class="propertyTitle">Image orientation</span><span class="propertyValue">{{ recordItem.Technical.ImageOrientation | titlecase }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #listEmpty>
+    <span class="propertyValue">-</span>
+</ng-template>
+
+<ng-template #videoPlayer>
+    <video controls>
+        <source [src]="recordItem!.Internal.PathToVideo">
+        Your browser does not support the video tag.
+    </video>
+</ng-template>

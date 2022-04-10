@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailComponent } from './detail/detail.component';
-import { OverviewComponent } from './overview/overview.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: OverviewComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'preview',
+        redirectTo: 'home'
+      }
+    ]
   },
   {
     path: 'records/:recordId',

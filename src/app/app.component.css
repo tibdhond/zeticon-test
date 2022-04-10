@@ -23,7 +23,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 5em;
+    margin-top: 2em;
 }
 
 .circle-link {

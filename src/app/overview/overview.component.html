@@ -1,4 +1,8 @@
 <div class="cardContainer">
-    <app-record-card *ngFor="let recordItem of records" [recordItem]="recordItem">
+    <app-record-card 
+        *ngFor="let recordItem of records; let i=index"
+        [recordItem]="recordItem"
+        [index]="i"
+    >
     </app-record-card>
 </div>

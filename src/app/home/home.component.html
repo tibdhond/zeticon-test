@@ -1,0 +1,7 @@
+<app-overview *ngIf="itemPreviewIndex === -1 && records" [records]="records"></app-overview>
+<app-browse 
+    *ngIf="itemPreviewIndex >= 0 && records"
+    [recordItem]="records[itemPreviewIndex]"
+    [index]="itemPreviewIndex"
+    [total]="total"
+></app-browse>

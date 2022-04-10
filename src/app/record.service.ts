@@ -4,11 +4,12 @@ import { RECORDS } from './mock/mock-records-result';
 @Injectable({
   providedIn: 'root'
 })
-export class RecordsService {
+export class RecordService {
 
   constructor() { }
 
-  getRecords() {
-    return RECORDS;
+
+  getRecord(id: string) {
+    return RECORDS.Results.find(rec => rec.Internal.RecordId === id);
   }
 }
