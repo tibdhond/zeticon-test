@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { OverviewComponent } from './overview/overview.component';
-import { DetailComponent } from './detail/detail.component';
-import { RecordCardComponent } from './record-card/record-card.component';
-import { HomeComponent } from './home/home.component';
-import { BrowseComponent } from './browse/browse.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { RecordCardComponent } from './components/record-card/record-card.component';
+import { HomeComponent } from './components/home/home.component';
+import { BrowseComponent } from './components/browse/browse.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowseComponent } from './browse/browse.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

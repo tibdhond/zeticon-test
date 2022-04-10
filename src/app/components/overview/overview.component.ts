@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { RecordItem } from '../models/record';
+import { RecordItem } from '../../models/record';
 
 @Component({
   selector: 'app-overview',
@@ -14,9 +14,4 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  thumbClicked() {
-
-  }
-
 }

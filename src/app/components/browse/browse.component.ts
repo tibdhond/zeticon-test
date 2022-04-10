@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { RecordItem } from '../models/record';
-import { BrowseService } from '../browse.service';
+import { RecordItem } from '../../models/record';
+import { BrowseService } from '../../services/browse.service';
 
 @Component({
   selector: 'app-browse',

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BrowseService } from '../browse.service';
-import { RecordItem } from '../models/record';
+import { BrowseService } from '../../services/browse.service';
+import { RecordItem } from '../../models/record';
 
 @Component({
   selector: 'app-record-card',
